@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { Button } from "./components/button/button";
+import { HomeComponent } from './components/home-component/home-component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Button],
+  imports: [HomeComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
