@@ -1,5 +1,7 @@
 <section>
     <div class="section-winner-search">
-        <input type="text" pInputText fluid placeholder="Ex: Oscar melhor filme 2020">
+        <input [(ngModel)]="searchWinner" type="text" pInputText fluid placeholder="Ex: Oscar melhor filme 2020">
+        <p-button label="Buscar" (click)="onSearchWinner()"></p-button>
+        <p>{{searchWinner}}</p>
     </div>
 </section>

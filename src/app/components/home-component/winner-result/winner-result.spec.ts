@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WinnerSearch } from './winner-search';
+import { WinnerResult } from './winner-result';
 
-describe('WinnerSearch', () => {
-  let component: WinnerSearch;
-  let fixture: ComponentFixture<WinnerSearch>;
+describe('WinnerResult', () => {
+  let component: WinnerResult;
+  let fixture: ComponentFixture<WinnerResult>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WinnerSearch]
+      imports: [WinnerResult]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WinnerSearch);
+    fixture = TestBed.createComponent(WinnerResult);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
