@@ -1,5 +1,6 @@
 <section class="home">
   <app-banner></app-banner>
   <div class="divider"></div>
-  <app-winner-search></app-winner-search>
+  <app-winner-search (searchSubmitted)="handleSearch($event)"></app-winner-search>
+  <p style="color: aliceblue;">{{handleSearchWinner}}</p>
 </section>

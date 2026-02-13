@@ -10,4 +10,12 @@ import { WinnerSearch } from './winner-search/winner-search';
 })
 export class HomeComponent {
 
+handleSearchWinner: string = ''
+
+  handleSearch(event: string) {
+    this.handleSearchWinner = event
+    console.log(this.handleSearchWinner)
+  }
+
+
 }
