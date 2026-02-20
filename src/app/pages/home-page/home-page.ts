@@ -1,16 +1,15 @@
 import { Component, EventEmitter, Input } from '@angular/core';
-import { Banner } from './banner/banner';
-import { WinnerSearch } from './winner-search/winner-search';
-import { WinnerResult } from "./winner-result/winner-result";
+import { Banner } from "../../components/banner/banner";
+import { WinnerSearch } from "../../components/winner-search/winner-search";
+import { WinnerResult } from "../../components/winner-result/winner-result";
 
 @Component({
-  selector: 'app-home-component',
+  selector: 'app-home-page',
   imports: [Banner, WinnerSearch, WinnerResult],
-  templateUrl: './home-component.html',
-  styleUrl: './home-component.css',
+  templateUrl: './home-page.html',
+  styleUrl: './home-page.css',
 })
-export class HomeComponent {
-
+export class HomePage {
 @Input() searchSubmitted = new EventEmitter<string>()
 
 handleSearchWinner: string = ''
