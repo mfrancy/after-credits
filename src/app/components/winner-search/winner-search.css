@@ -1,4 +1,6 @@
 .section-winner-search {
+  display: flex;
+  justify-content: center;
   margin:  auto;
   padding: 5px;
   width: min(720px, 92%);
