@@ -1,7 +1,7 @@
 <section class="home">
   <app-banner></app-banner>
   <div class="divider"></div>
-  <app-winner-search (searchSubmitted)="handleSearch($event)"></app-winner-search>
-  <app-winner-result [query]="handleSearchWinner"></app-winner-result>
-  <app-movie-card></app-movie-card>
+  <p>HOME LENGTH: {{ movies.length }}</p>
+  <app-movie-section [movies]="movies"></app-movie-section>
+  <h1>HOME REAL</h1>
 </section>

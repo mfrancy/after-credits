@@ -2,12 +2,14 @@ import { Component, EventEmitter, inject, Input, OnInit } from '@angular/core';
 import { Banner } from '../../components/banner/banner';
 import { WinnerSearch } from '../../components/winner-search/winner-search';
 import { WinnerResult } from '../../components/winner-result/winner-result';
-import { MovieCard } from '../../components/movie-card/movie-card';
 import { MoviesService } from '../../service/movies.service';
+import { Movie } from '../../models/movie.model';
+import { MovieSection } from '../../components/movie-section/movie-section';
 
 @Component({
   selector: 'app-home-page',
-  imports: [Banner, WinnerSearch, WinnerResult, MovieCard],
+  standalone: true,
+  imports: [Banner, MovieSection],
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
 })
@@ -16,16 +18,24 @@ export class HomePage implements OnInit {
 
   private moviesService = inject(MoviesService);
 
-  handleSearchWinner: string = '';
+  movies: Movie[] = [];
 
-  handleSearch(event: string) {
-    this.handleSearchWinner = event;
-    console.log(this.handleSearchWinner);
-  }
+  // ngOnInit(): void {
+  //   console.log('HOME INIT');
+  //   this.moviesService.getPopular().subscribe((movies) => {
+  //     console.log('FILMES RECEBIDOS:', movies.length);
+  //     setTimeout(() => {
+  //       this.movies = movies;
+  //     }, 0);
+  //   });
 
   ngOnInit(): void {
-    this.moviesService.getPopular().subscribe((res) => {
-      console.log(res);
-    });
+  console.log('HOME INIT');
+  
+  this.moviesService.getPopular().subscribe(movies => {
+    console.log('ANTES DE ATRIBUIR:', this.movies.length);
+    this.movies = movies;
+    console.log('DEPOIS DE ATRIBUIR:', this.movies.length);
+  });
   }
 }
