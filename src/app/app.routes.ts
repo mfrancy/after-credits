@@ -6,7 +6,8 @@ import { HomePage } from "./pages/home-page/home-page";
 export const routes: Routes = [
     {
         path: '',
-        component: HomePage
+        component: HomePage,
+        pathMatch: 'full'
     },
     {
         path: 'movie/:id',

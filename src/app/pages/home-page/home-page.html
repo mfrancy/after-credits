@@ -1,7 +1,8 @@
 <section class="home">
   <app-banner></app-banner>
-  <div class="divider"></div>
-  <p>HOME LENGTH: {{ movies.length }}</p>
-  <app-movie-section [movies]="movies"></app-movie-section>
-  <h1>HOME REAL</h1>
+  <p>HOME LENGTH: {{ (movies$ | async)?.length }}</p>
+
+<app-movie-section 
+  [movies]="(movies$ | async) ?? []">
+</app-movie-section>
 </section>

@@ -10,14 +10,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './movie-section.html',
   styleUrl: './movie-section.css',
 })
-export class MovieSection implements OnChanges {
+export class MovieSection {
   @Input() movies: Movie[] = []
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log('Mudou:', changes['movies']?.currentValue?.length);
-  }
+  visibleCount: number = 5
 
-  trackById(index: number, movie: Movie) {
-  return movie.id;
-}
+  
+  public get movieGrid() {
+    return this.movies.slice(0, this.visibleCount)
+  }
+  
+  
+
 }
