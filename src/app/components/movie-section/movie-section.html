@@ -1,6 +1,17 @@
+<div class="section-header">
+  <div>
+    <h1>Populares</h1>
+  </div>
+  <div class="subtitle-header">
+    <p>O que a comunidade está assistindo no momento.</p>
+    <a class="view-all" href="">Ver todos 
+      <i class="pi pi-angle-right"></i>
+    </a>
+  </div>
+  <hr class="section-divider">
+</div>
 <div class="section-movie">
 @for (movie of movieGrid; track movie.id) {
   <app-movie-card [movie]="movie"></app-movie-card>
 }
-
 </div>
