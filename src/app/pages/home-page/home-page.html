@@ -1,6 +1,21 @@
 <section class="home">
   <app-banner></app-banner>
 <app-movie-section 
-  [movies]="(movies$ | async) ?? []">
+  [movies]="(popularMovies$ | async) ?? []" 
+  title="Populares"
+  description="O que a comunidade está assistindo no momento."
+  >
+</app-movie-section>
+<app-movie-section 
+  [movies]="(upcomingMovies$ | async) ?? []" 
+  title="Chegando"
+  description="Os filmes que entrarão em cartaz."
+  >
+</app-movie-section>
+<app-movie-section 
+  [movies]="(upcomingMovies$ | async) ?? []" 
+  title="2006 - Revisitado"
+  description="Uma seleção de títulos lançados há vinte anos."
+  >
 </app-movie-section>
 </section>

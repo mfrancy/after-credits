@@ -11,7 +11,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './movie-section.css',
 })
 export class MovieSection {
-  @Input() movies: Movie[] = []
+  @Input() movies: Movie[] = [];
+  @Input() title!: string;
+  @Input() description!: string
 
   visibleCount: number = 5
 
@@ -20,6 +22,8 @@ export class MovieSection {
     return this.movies.slice(0, this.visibleCount)
   }
   
+
+
   
 
 }

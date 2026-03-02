@@ -15,22 +15,11 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './home-page.css',
 })
 export class HomePage {
-  // @Output() searchSubmitted = new EventEmitter<string>();
-
   private moviesService = inject(MoviesService);
-  // movies: Movie[] = [];
 
-movies$ = this.moviesService.getPopular();
+  popularMovies$ = this.moviesService.getPopular();
 
-  // ngOnInit(): void {
-  //   console.log('HOME INIT');
-  //   this.moviesService.getPopular().subscribe((movies) => {
-  //     console.log('FILMES RECEBIDOS:', movies.length);
-  //     setTimeout(() => {
-  //       this.movies = movies;
-  //     }, 0);
-  //   });
+  upcomingMovies$ = this.moviesService.getUpcoming();
 
 
-  }
-
+}

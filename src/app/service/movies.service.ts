@@ -25,7 +25,34 @@ export class MoviesService {
         rating: apiMovie.vote_average
     }))));
   }
+  getUpcoming() {
+    return this.http.get<ApiMovieResponse<ApiMovie>>(api_routes.getUpcomingMovie.baseUrl, {
+      headers: {
+        Authorization: `Bearer ${environment.accessToken}`,
+        accept: 'application/json'
+      }
+    }).pipe(map(response => response.results.map(apiMovie => ({
+        id: apiMovie.id,
+        title: apiMovie.title,
+        posterUrl: `https://image.tmdb.org/t/p/w500${apiMovie.poster_path}`,
+        releaseDate: apiMovie.release_date,
+        rating: apiMovie.vote_average
+    }))));
+  }
+  getByDate(date: string) {
+    return this.http.get<ApiMovieResponse<ApiMovie>>(api_routes.getUpcomingMovie.baseUrl, {
+      headers: {
+        Authorization: `Bearer ${environment.accessToken}`,
+        accept: 'application/json'
+      }
+    }).pipe(map(response => response.results.map(apiMovie => ({
+        id: apiMovie.id,
+        title: apiMovie.title,
+        posterUrl: `https://image.tmdb.org/t/p/w500${apiMovie.poster_path}`,
+        releaseDate: apiMovie.release_date,
+        rating: apiMovie.vote_average
+    }))));
+  }
 
-  
 }
 

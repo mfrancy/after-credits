@@ -1,9 +1,25 @@
+.section {
+background-color: #222222;
+}
+
+.section-container {
+  max-width: 1000px; 
+  margin: 0 auto;
+}
+
+.section-header {
+  background-color: #222222;
+  color: #a6afbb;
+  padding: 10px 40px 18px 25px;
+}
+
 .section-movie {
   display: grid;
   grid-template-columns: repeat(auto-fit, 140px);
   gap: 2rem;
   justify-content: center;
   background-color: #222222;
+  padding-bottom: 50px;
 }
 
 h1 {
@@ -15,22 +31,18 @@ h1 {
   padding: 0;
 }
 
-.section-header {
-  background-color: #222222;
-  color: #a6afbb;
-  padding: 10px 40px 18px 25px;
-}
-
 .subtitle-header {
   display: flex;
   justify-content: space-between;
 }
 
-.container-movie {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+.section-divider {
+  border: none;
+  height: 1px;
+  background: #373a3f;
+  margin-top: 16px;
 }
+
 
 .view-all {
   font-family: 'Inter', sans-serif;
@@ -48,9 +60,4 @@ h1 {
   color: #ffffff;
 }
 
-.section-divider {
-  border: none;
-  height: 1px;
-  background: #373a3f;
-  margin-top: 16px;
-}
+
