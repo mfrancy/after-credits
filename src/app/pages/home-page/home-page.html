@@ -13,9 +13,10 @@
   >
 </app-movie-section>
 <app-movie-section 
-  [movies]="(upcomingMovies$ | async) ?? []" 
+  [movies]="(byDateMovies$ | async) ?? []" 
   title="2006 - Revisitado"
   description="Uma seleção de títulos lançados há vinte anos."
   >
 </app-movie-section>
+<app-article-hero-section></app-article-hero-section>
 </section>

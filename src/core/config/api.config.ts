@@ -1,15 +1,14 @@
 import { environment } from "../../environments/environments"
 
 export const api_routes = {
-    getMoviePopular: {
-        baseUrl: environment.apiBaseUrl + `/movie/popular` 
+    getMoviePopular(): string {
+        return `${environment.apiBaseUrl}/movie/popular` 
     },
-    getUpcomingMovie: {
-        baseUrl: environment.apiBaseUrl + `/movie/upcoming` 
+    getUpcomingMovie(): string {
+        return `${environment.apiBaseUrl}/movie/upcoming` 
+        
     },
-    getbyDate(date: string) {
-        return {
-            baseUrl: environment.apiBaseUrl + `/movie/upcoming` 
-        }
+    getByDate(date: string) {
+        return  `${environment.apiBaseUrl}/discover/movie?include_adult=true&language=pt-BR&page=1&sort_by=vote_count.desc&year=${date}` 
     }
 }

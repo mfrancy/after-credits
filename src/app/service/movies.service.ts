@@ -11,48 +11,41 @@ import { map } from 'rxjs';
 export class MoviesService {
   private http = inject(HttpClient);
 
+  private mapToMovie(apiMovie: ApiMovie) {
+    return {
+      id: apiMovie.id,
+      title: apiMovie.title,
+      posterUrl: `https://image.tmdb.org/t/p/w500${apiMovie.poster_path}`,
+      releaseDate: apiMovie.release_date,
+      rating: apiMovie.vote_average,
+    };
+  }
+
+  private getHeaders() {
+    return {
+      headers: {
+        Authorization: `Bearer ${environment.accessToken}`,
+        accept: 'application/json',
+      },
+    };
+  }
+
+  private fetchMovies(url: string) {
+    return this.http.get<ApiMovieResponse<ApiMovie>>(url, this.getHeaders()).pipe(
+      map(response => response.results.map(movie => this.mapToMovie(movie)))
+    )
+  }
+
   getPopular() {
-    return this.http.get<ApiMovieResponse<ApiMovie>>(api_routes.getMoviePopular.baseUrl, {
-      headers: {
-        Authorization: `Bearer ${environment.accessToken}`,
-        accept: 'application/json'
-      }
-    }).pipe(map(response => response.results.map(apiMovie => ({
-        id: apiMovie.id,
-        title: apiMovie.title,
-        posterUrl: `https://image.tmdb.org/t/p/w500${apiMovie.poster_path}`,
-        releaseDate: apiMovie.release_date,
-        rating: apiMovie.vote_average
-    }))));
+    return this.fetchMovies(api_routes.getMoviePopular());
   }
+
   getUpcoming() {
-    return this.http.get<ApiMovieResponse<ApiMovie>>(api_routes.getUpcomingMovie.baseUrl, {
-      headers: {
-        Authorization: `Bearer ${environment.accessToken}`,
-        accept: 'application/json'
-      }
-    }).pipe(map(response => response.results.map(apiMovie => ({
-        id: apiMovie.id,
-        title: apiMovie.title,
-        posterUrl: `https://image.tmdb.org/t/p/w500${apiMovie.poster_path}`,
-        releaseDate: apiMovie.release_date,
-        rating: apiMovie.vote_average
-    }))));
+    return this.fetchMovies(api_routes.getUpcomingMovie())
+      
   }
+
   getByDate(date: string) {
-    return this.http.get<ApiMovieResponse<ApiMovie>>(api_routes.getUpcomingMovie.baseUrl, {
-      headers: {
-        Authorization: `Bearer ${environment.accessToken}`,
-        accept: 'application/json'
-      }
-    }).pipe(map(response => response.results.map(apiMovie => ({
-        id: apiMovie.id,
-        title: apiMovie.title,
-        posterUrl: `https://image.tmdb.org/t/p/w500${apiMovie.poster_path}`,
-        releaseDate: apiMovie.release_date,
-        rating: apiMovie.vote_average
-    }))));
+    return this.fetchMovies(api_routes.getByDate('2006'))
   }
-
 }
-

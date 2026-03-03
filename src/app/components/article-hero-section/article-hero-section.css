@@ -1,0 +1,52 @@
+.section {
+  background-color: #1b1b1b;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.section-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 25px 40px 18px 25px;
+}
+
+.section-conteud {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.section-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-button {
+  padding-top: 25px;
+  display: flex;
+  gap: 10px;
+}
+
+h1 {
+  color: white;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  font-size: 54px;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 0;
+}
+
+p {
+  line-height: 1.7;
+  padding-top: 5px;
+  color: #a6afbb;
+}
+
+img {
+  width: 35rem;
+  object-fit: cover;
+  border-radius: 10px;
+}
