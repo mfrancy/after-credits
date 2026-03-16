@@ -1,7 +1,9 @@
 <div class="container-movie">
   <div class="card-section ">
     <div class="card-container " pTooltip="{{movie.title}}">
-      <img src="{{ movie.posterUrl }}" alt="" />
+      <a [routerLink]="['/movie', movie.id]">
+        <img  [src]="movie.posterUrl" alt="" />
+      </a>
     </div>
   </div>
 </div>
