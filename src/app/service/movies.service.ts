@@ -21,17 +21,9 @@ export class MoviesService {
     };
   }
 
-  private getHeaders() {
-    return {
-      headers: {
-        Authorization: `Bearer ${environment.accessToken}`,
-        accept: 'application/json',
-      },
-    };
-  }
 
   private fetchMovies(url: string) {
-    return this.http.get<ApiMovieResponse<ApiMovie>>(url, this.getHeaders()).pipe(
+    return this.http.get<ApiMovieResponse<ApiMovie>>(url).pipe(
       map(response => response.results.map(movie => this.mapToMovie(movie)))
     )
   }
@@ -46,6 +38,6 @@ export class MoviesService {
   }
 
   getByDate(date: string) {
-    return this.fetchMovies(api_routes.getByDate('2006'))
+    return this.fetchMovies(api_routes.getByDate(date))
   }
 }

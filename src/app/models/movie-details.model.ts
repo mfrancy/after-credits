@@ -8,6 +8,7 @@ export interface MovieDetail {
     original_title: string;
     overview: string;
     poster_path: string;
+    posterUrl?: string
     release_date: string;
     title: string;
 }
