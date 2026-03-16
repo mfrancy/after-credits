@@ -4,7 +4,8 @@ import { definePreset } from '@primeng/themes';
 import Aura from '@primeng/themes/aura';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { tmdbInterceptor } from '../core/interceptors/tmdb.interceptor';
 
 const Noir = definePreset(Aura, {
     semantic: {
@@ -60,6 +61,6 @@ export const appConfig: ApplicationConfig = {
       },
     }),
     provideRouter(routes),
-    provideHttpClient()
+    provideHttpClient(withInterceptors([tmdbInterceptor]))
   ],
 };
