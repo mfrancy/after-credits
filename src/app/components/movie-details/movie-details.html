@@ -1,6 +1,22 @@
-@if (movie) {
-    <img src="{{movie.posterUrl}}" alt="">
-
-
-  <p>{{ movie.title }}</p>
-}
+<div class="section">
+  @if (movie) {
+    <div class="section-header">
+      <div [style.background-image]="'url(' + movie.posterUrl + ')'" class="hero">
+        <div class="conteudo-header">
+          <div class="div-title">
+            <h3 class="title-hero">{{ movie.title }}</h3>
+          </div>
+          <div class="div-description-hero">
+            <p>{{ movie.release_date | date: 'yyyy'}} | Aventura</p>
+          </div>
+          <div class="div-button-hero">
+            <p-button class="" label="Adicionar a lista" [rounded]="true" />
+            <p-button label="Avaliar" [rounded]="true" />
+          </div>
+        </div>
+      </div>
+      <!-- <img src="{{ movie.posterUrl }}" alt="" /> -->
+      <p>{{ movie.title }}</p>
+    </div>
+  }
+</div>

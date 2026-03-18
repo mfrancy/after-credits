@@ -19,7 +19,7 @@ export class MovieDetailsService {
   getMovieById(id: string) {
     return this.http.get<MovieDetail>(api_routes.getMovieById(id)).pipe(map(movie => ({
       ...movie,
-      posterUrl: imageUrl(movie.backdrop_path, 'w500')
+      posterUrl: imageUrl(movie.backdrop_path, 'original')
     })))
   }
 
